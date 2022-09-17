@@ -22,7 +22,8 @@ while (m >= n)
     Console.Write("Введите второе число, больше первого: ");
     n = int.Parse(Console.ReadLine());    
 }
-Console.WriteLine();
+// решение через цикл
+/*Console.WriteLine();
 Console.Write("Диапазон между первым и вторым числом: ");
 int max = m;
 int sum = 0;
@@ -36,4 +37,22 @@ for (int i = m; i < n; i++)
 Console.Write(n);
 Console.WriteLine();
 Console.WriteLine("Сумма всех чисел в промежутке от первого до второго: " + (sum + n));
+*/
+void SumNumber(int arg1, int arg2, int sum)
+{
+    if (arg1 == arg2)
+    {
+        sum += arg1;
+        Console.WriteLine($" {sum}");
+        return;
+    }
+    if (arg1 < arg2)
+    {
+        sum += arg1;
+        SumNumber(arg1 + 1, arg2, sum);
+    }
+}
 
+int sum = 0;
+Console.Write($"Ответ по 2 варианту: сумма натуральных чисел от {m} до {n}:");
+SumNumber(m, n, sum);
