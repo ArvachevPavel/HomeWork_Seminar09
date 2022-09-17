@@ -22,7 +22,8 @@ while (m >= n)
     Console.Write("Введите второе число, больше первого: ");
     n = int.Parse(Console.ReadLine());    
 }
-Console.WriteLine();
+// решение через цикл
+/*Console.WriteLine();
 Console.Write("Диапазон между первым и вторым числом: ");
 int max = m;
 for (int i = m; i < n; i++)
@@ -31,4 +32,22 @@ for (int i = m; i < n; i++)
     max = max + 1;
     
 }
-Console.Write(n);
+Console.Write(n);*/
+// решение через рекурсию
+
+void NaturalNumber(int arg1, int arg2)
+{
+    if (arg1 == arg2)
+    {
+        Console.WriteLine($" {arg1}");
+        return;
+    }
+    if (arg1 < arg2)
+    {
+        Console.Write($" {arg1},");
+        NaturalNumber(arg1 + 1, arg2);
+    }
+}
+
+Console.Write($"Ответ по 2 варианту: натуральные числа от {m} до {n}:");
+NaturalNumber(m, n);
